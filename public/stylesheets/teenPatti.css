@@ -1,0 +1,21 @@
+.teenPatti .set {
+  position: relative;
+  height: 124px;
+}
+.teenPatti .set .card {
+  position: absolute;
+  zoom: .7;
+}
+.teenPatti .set .card .icon-large.center {
+  left: 43px;
+}
+.teenPatti .set .card .icon-small.left {
+  top: 42px;
+  left: 6px;
+}
+.teenPatti .set .card .icon-small.right {
+  display: none;
+}
+.teenPatti .set .card .text-small.left {
+  font-size: 40px;
+}

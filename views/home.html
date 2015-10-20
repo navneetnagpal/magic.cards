@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Magic Cards</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="stylesheets/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="stylesheets/style.css">
+		<script type="text/javascript" src="javascripts/vendor/jquery-1.10.2.js" ></script>
+		<script type="text/javascript" src="javascripts/vendor/jquery-ui-1.10.3.js" ></script>
+		<script type="text/javascript" src="javascripts/vendor/bootstrap.js" ></script>
+		<script type="text/javascript" src="javascripts/vendor/angular-1.2.0.js" ></script>
+		<script type="text/javascript" src="javascripts/magic-cards.js" ></script>
+	</head>
+	<body ng-app="magicCards" >
+		<header class="navbar navbar-static-top navbar-inverse bs-docs-nav" id="top" role="banner">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a href="../" class="navbar-brand">Mind Reader</a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<li><a href="/teenpatti">Teenpatti</a></li>
+					</nav>
+				</div>
+			</header>
+			<div class="container-fluid" ng-controller="magicCardsCtrl">
+				
+				<div >
+					<div magic-cards="">
+						<div class="cards-toshow" ng-show="showCards">
+							<h1>Choose one card and keep it in your mind!! </h1>
+							<div class="container-fluid" >
+								<div class="card  {{cd.type}}"  ng-style="{ 'left' : 40+{{$index}}*40 , 'top':{{100+-20+$index*2}},'transform':' rotate({{-23+$index*2}}deg)' }" ng-repeat="cd in cards" card="cd">
+									<span class="icon icon-small left {{cd.type}}"></span>
+									<span class="text-small left">{{cd.name}}</span>
+									<span class="icon icon-large center {{cd.type}}">
+									<span class="text-large">{{cd.name}}</span>
+									</span>
+									<span class="icon  icon-small right  {{cd.type}}"></span>
+									<span class="text-small right {{cd.type}}">{{cd.name}}</span>
+								</div>
+							</div>
+						</div>
+						<div class="actions container" >
+							<button ng-click="magicNext()" class="btn btn-success" ng-show="!showSlot && !finalCard">I have now memorize my card. Start the magic</button>
+							<button ng-click="magicStart()"  class="btn btn-success" ng-show="finalCard" >Try once more!!</button>
+						</div>
+						<div class="container"  ng-show="finalCard" >
+							<div class="card finalCard {{finalCard.type}}">
+								<span class="icon icon-small left {{finalCard.type}}"></span>
+								<span class="text-small left">{{finalCard.name}}</span>
+								<span class="icon icon-large center {{finalCard.type}}">
+								<span class="text-large">{{finalCard.name}}</span>
+								</span>
+								<span class="icon  icon-small right  {{finalCard.type}}"></span>
+								<span class="text-small right {{finalCard.type}}">{{finalCard.name}}</span>
+							</div>
+							<h1 style="text-align: center;" >This is your card!!!</h1>
+						</div>
+						<div class="container">
+							<div class="col-md-3 slot">
+								<div class="card {{cd.type}}"  index="{{$index}}" ng-style="{ 'top' : {{$index}}*20, 'left':{{$index}}*20,'transform':' rotate({{-50+$index*25}}deg)' }" ng-repeat="cd in set1 track by cd.id" card="cd">
+									<span class="icon icon-small left {{cd.type}}"></span>
+									<span class="text-small left">{{cd.name}}</span>
+									<span class="icon icon-large center {{cd.type}}">
+									<span class="text-large">{{cd.name}}</span>
+									</span>
+									<span class="icon  icon-small right  {{cd.type}}"></span>
+									<span class="text-small right {{cd.type}}">{{cd.name}}</span>
+								</div>
+								
+								<button ng-show="showSlot"   class="btn btn-primary"  type="button" ng-click="nextSlot(1)" >I can see my Card in this slot </button>
+							</div>
+							<div class="col-md-3 slot">
+								<div class="card  {{cd.type}}" index="{{$index}}" ng-style="{ 'top' : {{$index}}*20, 'left':{{$index}}*20 ,'transform':' rotate({{-50+$index*25}}deg)'}" ng-repeat="cd in set2  track by cd.id" card="cd">
+									<span class="icon icon-small left {{cd.type}}"></span>
+									<span class="text-small left">{{cd.name}}</span>
+									<span class="icon icon-large center {{cd.type}}">
+									<span class="text-large">{{cd.name}}</span>
+									</span>
+									<span class="icon  icon-small right  {{cd.type}}"></span>
+									<span class="text-small right {{cd.type}}">{{cd.name}}</span>
+								</div>
+								<button ng-show="showSlot"  class="btn btn-primary"  type="button" ng-click="nextSlot(2)" >I can see my Card in this slot </button>
+							</div>
+							<div class="col-md-3 slot">
+								<div class="card  {{cd.type}}" index="{{$index}}" ng-style="{ 'top' : {{$index}}*20, 'left':{{$index}}*20,'transform':' rotate({{-50+$index*25}}deg)' }" ng-repeat="cd in set3  track by cd.id" card="cd">
+									<span class="icon icon-small left {{cd.type}}"></span>
+									<span class="text-small left">{{cd.name}}</span>
+									<span class="icon icon-large center {{cd.type}}">
+									<span class="text-large">{{cd.name}}</span>
+									</span>
+									<span class="icon  icon-small right  {{cd.type}}"></span>
+									<span class="text-small right {{cd.type}}">{{cd.name}}</span>
+								</div>
+								<button ng-show="showSlot"  class="btn btn-primary"  type="button" ng-click="nextSlot(3)" >I can see my Card in this slot </button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+	</html>

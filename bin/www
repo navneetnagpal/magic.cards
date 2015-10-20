@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+var debug = require('debug')('app');
+var app = require('../app'); 
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
+
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function(client){
+    
+    console.log(client.id);
+
+    client.emit('test');
+
+    client.on('fromClient', function(soc,args){
+        console.log(arguments);
+        client.broadcast.emit('fromServer',arguments[0]);
+    })
+});

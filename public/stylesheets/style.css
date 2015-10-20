@@ -1,0 +1,130 @@
+body { 
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.icon {
+	background: url('/images/icons/grid-icons.png');
+}
+.card {
+	width:120px;
+	height: 150px;
+	background:white;
+}
+.card.heart, .card.diamond {
+	border:solid 1px red;
+}
+.card.club, .card.spade {
+	border:solid 1px black;
+}
+.card .icon.spade.icon-small {
+	background-position: -7px -6px;
+}
+.card .icon.diamond.icon-small {
+	background-position: -131px -11px;
+}
+.card .icon.heart.icon-small {
+	background-position: -52px -11px;
+}
+.card .icon.club.icon-small {
+	background-position: -92px -11px;
+}
+.card .icon-small {
+	width: 36px;
+	height: 39px;
+	position: absolute;
+	
+}
+.card .icon-small.left {
+	top: 17px;
+	left: 2px;
+}
+.card .icon-small.right {
+	top: 93px;
+	right: 0px;
+}
+.card .icon-large {
+	width: 68px;
+	height: 68px;
+	position: absolute;
+}
+.card .icon-large.center {
+	top: 42px;
+	left: 22px;
+}
+.card .icon.spade.icon-large {
+	background-position: 6px -57px;
+}
+.card .icon.diamond.icon-large {
+	background-position: -197px -54px;
+}
+.card .icon.heart.icon-large {
+	background-position: -59px -57px;
+}
+.card .icon.club.icon-large {
+	background-position: -130px -57px;
+}
+.card .container {
+	position: relative;
+}
+.card .text-small {
+	position:absolute;
+	font-size: 16px;
+	width: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+.card .text-small.right {
+	top:130px;
+	right:9px;
+}
+.card .text-small.left {
+	top:2px;
+	left:8px;
+}
+.card .text-large {
+	width:68px;
+	height: 68px;
+	font-size: 21px;
+	color:white;
+	text-align: center;
+	display: block;
+	padding: 16px 1px;
+}
+
+.cards-toshow  {
+	list-style: none;
+	position: relative;
+	width: 1000px;
+	height: 300px;
+
+}
+.cards-toshow  .card { 
+	position:absolute;
+}
+ 
+
+ .slot {
+ 	position:relative;
+
+ }
+ .slot button {
+ 	margin-top:400px;
+ }
+  .slot .card {
+  	position: absolute;
+  }
+  .finalCard {
+  	margin: 40px auto;
+  	position:relative;
+  }
+  .actions {
+  	text-align: center;
+  }
+
+
+
+
+  
